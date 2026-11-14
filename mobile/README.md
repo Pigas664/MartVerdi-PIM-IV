@@ -1,0 +1,1 @@
+O aplicativo móvel MartVerdi foi desenvolvido utilizando Flutter e Dart. Sua finalidade é permitir o gerenciamento administrativo de produtos e pedidos, com integração à API REST desenvolvida em .NET e ao banco de dados SQL Server. Copiar texto
