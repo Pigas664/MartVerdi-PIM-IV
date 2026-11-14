@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- LOGIN: formulário de entrada do usuário e redirecionamento para a conta. -->
+
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar | MartVerdi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Poppins,sans-serif}
+    body{min-height:100vh;background:#F8FAF9;color:#1B2A23;display:flex;align-items:center;justify-content:center;padding:24px}
+    .login-page{width:min(960px,100%);display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 18px 50px rgba(27,42,35,.12)}
+    .login-brand{background:#2D6A4F;color:#fff;padding:55px 45px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+    .login-brand img{width:150px;height:150px;object-fit:contain;background:#fff;border-radius:50%;padding:15px;margin-bottom:25px}
+    .login-brand h1{font-size:28px;margin-bottom:10px}.login-brand p{opacity:.9;line-height:1.6}
+    .login-form{padding:55px 45px}.kicker{font-size:12px;color:#2D6A4F;font-weight:700;letter-spacing:1px}.login-form h2{font-size:30px;margin:7px 0 10px}.intro{color:#68756E;font-size:14px;margin-bottom:28px}
+    label{display:block;font-size:13px;font-weight:600;margin:15px 0 7px}.field{width:100%;height:48px;border:1px solid #D4DED8;border-radius:9px;padding:0 14px;outline:none}.field:focus{border-color:#2D6A4F;box-shadow:0 0 0 3px rgba(45,106,79,.1)}
+    .btn-login{width:100%;height:48px;border:0;border-radius:9px;background:#E76F51;color:#fff;font-weight:700;margin-top:22px;cursor:pointer}.btn-login:hover{background:#D85B3B}
+    .cadastro{margin-top:18px;text-align:center;font-size:13px;color:#68756E}.cadastro a{color:#2D6A4F;font-weight:700;text-decoration:none}.voltar{display:inline-block;margin-top:20px;color:#2D6A4F;text-decoration:none;font-size:13px}
+    #mensagem{margin-top:15px;font-size:13px;font-weight:600;min-height:20px}
+    @media(max-width:700px){.login-page{grid-template-columns:1fr}.login-brand{padding:35px}.login-brand img{width:100px;height:100px}.login-form{padding:35px 25px}}
+  </style>
+  <link rel="icon" type="image/png" href="../favicon.png">
+</head>
+<body>
+  <main class="login-page">
+    <section class="login-brand">
+      <img src="../assets/img/martverdi-icon.png" alt="Logo MartVerdi">
+      <h1>Bem-vindo ao MartVerdi</h1>
+      <p>Entre na sua conta para acompanhar seus pedidos e aproveitar uma experiência mais completa.</p>
+    </section>
+    <section class="login-form">
+      <span class="kicker">ÁREA DO CLIENTE</span>
+      <h2>Entrar</h2>
+      <p class="intro">Acesse sua conta MartVerdi.</p>
+      <form id="loginForm">
+        <label for="usuario">Usuário</label>
+        <input class="field" id="usuario" type="text" placeholder="Digite seu usuário" required>
+        <label for="senha">Senha</label>
+        <input class="field" id="senha" type="password" placeholder="Digite sua senha" required>
+        <button class="btn-login" type="submit">Entrar</button>
+      </form>
+      <p id="mensagem"></p>
+      <p class="cadastro">Ainda não tem conta? <a href="./cadastro.html">Criar uma conta</a></p>
+      <a class="voltar" href="../index.html">← Voltar ao mercado</a>
+    </section>
+  </main>
+  <script>
+    const form=document.getElementById('loginForm');
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      const usuario=document.getElementById('usuario').value.trim();
+      const senha=document.getElementById('senha').value;
+      const mensagem=document.getElementById('mensagem');
+      const usuarios=JSON.parse(localStorage.getItem('martverdiUsuarios')||'[]');
+      const valido=(usuario==='admin'&&senha==='1234')||usuarios.some(u=>u.usuario===usuario&&u.senha===senha);
+      if(valido){
+        localStorage.setItem('usuarioLogado',usuario);
+        const destino=localStorage.getItem('martverdiDestinoLogin');
+        localStorage.removeItem('martverdiDestinoLogin');
+        mensagem.textContent='Login realizado!';
+        mensagem.style.color='#2D6A4F';
+        setTimeout(()=>window.location.href=(destino || '../index.html'),600);
+      }else{
+        mensagem.textContent='Usuário ou senha incorretos.';
+        mensagem.style.color='#D85B3B';
+      }
+    });
+  </script>
+</body>
+</html>

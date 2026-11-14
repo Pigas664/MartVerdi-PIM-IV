@@ -1,0 +1,502 @@
+[
+  {
+    "id": 1,
+    "nome": "Arroz Branco Tipo 1 5kg",
+    "marca": "Tio João",
+    "categoria": "Mercearia",
+    "preco": 24.9,
+    "imagem": "./assets/img/produtos/01-arroz-branco-tipo-1-5kg.jpg",
+    "oferta": true,
+    "descricao": "Arroz Branco Tipo 1 5kg Tio João"
+  },
+  {
+    "id": 2,
+    "nome": "Feijão Carioca 1kg",
+    "marca": "Camil",
+    "categoria": "Mercearia",
+    "preco": 7.99,
+    "imagem": "./assets/img/produtos/02-feijao-carioca-1kg.jpg",
+    "oferta": true,
+    "descricao": "Feijão Carioca 1kg Camil"
+  },
+  {
+    "id": 3,
+    "nome": "Leite Integral UHT 1L",
+    "marca": "Italac",
+    "categoria": "Laticínios",
+    "preco": 4.99,
+    "imagem": "./assets/img/produtos/03-leite-integral-uht-1l.jpg",
+    "oferta": false,
+    "descricao": "Leite Integral UHT 1L Italac"
+  },
+  {
+    "id": 4,
+    "nome": "Refrigerante Original 2L",
+    "marca": "Coca-Cola",
+    "categoria": "Bebidas",
+    "preco": 9.99,
+    "imagem": "./assets/img/produtos/04-refrigerante-original-2l.jpg",
+    "oferta": true,
+    "descricao": "Refrigerante Original 2L Coca-Cola"
+  },
+  {
+    "id": 5,
+    "nome": "Frango Sassami Congelado 1kg",
+    "marca": "Sadia",
+    "categoria": "Açougue",
+    "preco": 17.9,
+    "imagem": "./assets/img/produtos/05-frango-sassami-congelado-1kg.jpg",
+    "oferta": false,
+    "descricao": "Frango Sassami Congelado 1kg Sadia"
+  },
+  {
+    "id": 6,
+    "nome": "Óleo de Soja 900ml",
+    "marca": "Soya",
+    "categoria": "Mercearia",
+    "preco": 6.49,
+    "imagem": "./assets/img/produtos/06-oleo-de-soja-900ml.jpg",
+    "oferta": true,
+    "descricao": "Óleo de Soja 900ml Soya"
+  },
+  {
+    "id": 7,
+    "nome": "Açúcar Refinado 1kg",
+    "marca": "União",
+    "categoria": "Mercearia",
+    "preco": 4.29,
+    "imagem": "./assets/img/produtos/07-acucar-refinado-1kg.jpg",
+    "oferta": false,
+    "descricao": "Açúcar Refinado 1kg União"
+  },
+  {
+    "id": 8,
+    "nome": "Café Torrado e Moído Tradicional 500g",
+    "marca": "Pilão",
+    "categoria": "Mercearia",
+    "preco": 19.9,
+    "imagem": "./assets/img/produtos/08-cafe-torrado-e-moido-tradicional-500g.jpg",
+    "oferta": false,
+    "descricao": "Café Torrado e Moído Tradicional 500g Pilão"
+  },
+  {
+    "id": 9,
+    "nome": "Farinha de Trigo Tradicional 1kg",
+    "marca": "Dona Benta",
+    "categoria": "Mercearia",
+    "preco": 5.49,
+    "imagem": "./assets/img/produtos/09-farinha-de-trigo-tradicional-1kg.jpg",
+    "oferta": false,
+    "descricao": "Farinha de Trigo Tradicional 1kg Dona Benta"
+  },
+  {
+    "id": 10,
+    "nome": "Macarrão Espaguete nº 8 500g",
+    "marca": "Barilla",
+    "categoria": "Mercearia",
+    "preco": 5.99,
+    "imagem": "./assets/img/produtos/10-macarrao-espaguete-no-8-500g.jpg",
+    "oferta": false,
+    "descricao": "Macarrão Espaguete nº 8 500g Barilla"
+  },
+  {
+    "id": 11,
+    "nome": "Molho de Tomate Tradicional Sachê 300g",
+    "marca": "Heinz",
+    "categoria": "Mercearia",
+    "preco": 3.89,
+    "imagem": "./assets/img/produtos/11-molho-de-tomate-tradicional-sache-300g.jpg",
+    "oferta": true,
+    "descricao": "Molho de Tomate Tradicional Sachê 300g Heinz"
+  },
+  {
+    "id": 12,
+    "nome": "Sal Refinado 1kg",
+    "marca": "Cisne",
+    "categoria": "Mercearia",
+    "preco": 2.99,
+    "imagem": "./assets/img/produtos/12-sal-refinado-1kg.jpg",
+    "oferta": false,
+    "descricao": "Sal Refinado 1kg Cisne"
+  },
+  {
+    "id": 13,
+    "nome": "Azeite de Oliva Extravirgem 500ml",
+    "marca": "Gallo",
+    "categoria": "Mercearia",
+    "preco": 38.9,
+    "imagem": "./assets/img/produtos/13-azeite-de-oliva-extravirgem-500ml.jpg",
+    "oferta": false,
+    "descricao": "Azeite de Oliva Extravirgem 500ml Gallo"
+  },
+  {
+    "id": 14,
+    "nome": "Leite Condensado Semidesnatado 395g",
+    "marca": "Moça (Nestlé)",
+    "categoria": "Mercearia",
+    "preco": 6.79,
+    "imagem": "./assets/img/produtos/14-leite-condensado-semidesnatado-395g.jpg",
+    "oferta": false,
+    "descricao": "Leite Condensado Semidesnatado 395g Moça (Nestlé)"
+  },
+  {
+    "id": 15,
+    "nome": "Creme de Leite Leve 200g",
+    "marca": "Piracanjuba",
+    "categoria": "Mercearia",
+    "preco": 3.69,
+    "imagem": "./assets/img/produtos/15-creme-de-leite-leve-200g.jpg",
+    "oferta": false,
+    "descricao": "Creme de Leite Leve 200g Piracanjuba"
+  },
+  {
+    "id": 16,
+    "nome": "Biscoito Recheado Sabor Chocolate 136g",
+    "marca": "Oreo",
+    "categoria": "Biscoitos e Doces",
+    "preco": 4.49,
+    "imagem": "./assets/img/produtos/16-biscoito-recheado-sabor-chocolate-136g.jpg",
+    "oferta": false,
+    "descricao": "Biscoito Recheado Sabor Chocolate 136g Oreo"
+  },
+  {
+    "id": 17,
+    "nome": "Biscoito Cream Cracker 200g",
+    "marca": "Bauducco",
+    "categoria": "Biscoitos e Doces",
+    "preco": 4.29,
+    "imagem": "./assets/img/produtos/17-biscoito-cream-cracker-200g.jpg",
+    "oferta": false,
+    "descricao": "Biscoito Cream Cracker 200g Bauducco"
+  },
+  {
+    "id": 18,
+    "nome": "Achocolatado em Pó 400g",
+    "marca": "Nescau",
+    "categoria": "Mercearia",
+    "preco": 8.99,
+    "imagem": "./assets/img/produtos/18-achocolatado-em-po-400g.jpg",
+    "oferta": true,
+    "descricao": "Achocolatado em Pó 400g Nescau"
+  },
+  {
+    "id": 19,
+    "nome": "Manteiga com Sal 200g",
+    "marca": "Aviação",
+    "categoria": "Laticínios",
+    "preco": 12.9,
+    "imagem": "./assets/img/produtos/19-manteiga-com-sal-200g.jpg",
+    "oferta": false,
+    "descricao": "Manteiga com Sal 200g Aviação"
+  },
+  {
+    "id": 20,
+    "nome": "Margarina com Sal 500g",
+    "marca": "Qualy",
+    "categoria": "Laticínios",
+    "preco": 8.49,
+    "imagem": "./assets/img/produtos/20-margarina-com-sal-500g.jpg",
+    "oferta": false,
+    "descricao": "Margarina com Sal 500g Qualy"
+  },
+  {
+    "id": 21,
+    "nome": "Queijo Mussarela Fatiado 200g",
+    "marca": "Tirolez",
+    "categoria": "Frios e Laticínios",
+    "preco": 11.9,
+    "imagem": "./assets/img/produtos/21-queijo-mussarela-fatiado-200g.jpg",
+    "oferta": false,
+    "descricao": "Queijo Mussarela Fatiado 200g Tirolez"
+  },
+  {
+    "id": 22,
+    "nome": "Presunto Cozido Fatiado 200g",
+    "marca": "Seara",
+    "categoria": "Frios e Embutidos",
+    "preco": 8.9,
+    "imagem": "./assets/img/produtos/22-presunto-cozido-fatiado-200g.jpg",
+    "oferta": false,
+    "descricao": "Presunto Cozido Fatiado 200g Seara"
+  },
+  {
+    "id": 23,
+    "nome": "Iogurte Natural Integral 170g",
+    "marca": "Danone",
+    "categoria": "Laticínios",
+    "preco": 3.99,
+    "imagem": "./assets/img/produtos/23-iogurte-natural-integral-170g.jpg",
+    "oferta": false,
+    "descricao": "Iogurte Natural Integral 170g Danone"
+  },
+  {
+    "id": 24,
+    "nome": "Requeijão Cremoso Tradicional 200g",
+    "marca": "Catupiry",
+    "categoria": "Laticínios",
+    "preco": 9.5,
+    "imagem": "./assets/img/produtos/24-requeijao-cremoso-tradicional-200g.jpg",
+    "oferta": false,
+    "descricao": "Requeijão Cremoso Tradicional 200g Catupiry"
+  },
+  {
+    "id": 25,
+    "nome": "Pão de Forma Tradicional 500g",
+    "marca": "Wickbold",
+    "categoria": "Padaria",
+    "preco": 9.49,
+    "imagem": "./assets/img/produtos/25-pao-de-forma-tradicional-500g.jpg",
+    "oferta": false,
+    "descricao": "Pão de Forma Tradicional 500g Wickbold"
+  },
+  {
+    "id": 26,
+    "nome": "Batata Palha Tradicional 120g",
+    "marca": "Yoki",
+    "categoria": "Mercearia",
+    "preco": 7.89,
+    "imagem": "./assets/img/produtos/26-batata-palha-tradicional-120g.jpg",
+    "oferta": false,
+    "descricao": "Batata Palha Tradicional 120g Yoki"
+  },
+  {
+    "id": 27,
+    "nome": "Maionese Tradicional 500g",
+    "marca": "Hellmann's",
+    "categoria": "Molhos e Condimentos",
+    "preco": 8.99,
+    "imagem": "./assets/img/produtos/27-maionese-tradicional-500g.jpg",
+    "oferta": false,
+    "descricao": "Maionese Tradicional 500g Hellmann's"
+  },
+  {
+    "id": 28,
+    "nome": "Ketchup Tradicional 397g",
+    "marca": "Heinz",
+    "categoria": "Molhos e Condimentos",
+    "preco": 11.49,
+    "imagem": "./assets/img/produtos/28-ketchup-tradicional-397g.jpg",
+    "oferta": false,
+    "descricao": "Ketchup Tradicional 397g Heinz"
+  },
+  {
+    "id": 29,
+    "nome": "Atum Sólido em Óleo 170g",
+    "marca": "Gomes da Costa",
+    "categoria": "Mercearia",
+    "preco": 9.89,
+    "imagem": "./assets/img/produtos/29-atum-solido-em-oleo-170g.jpg",
+    "oferta": false,
+    "descricao": "Atum Sólido em Óleo 170g Gomes da Costa"
+  },
+  {
+    "id": 30,
+    "nome": "Sardinha em Molho de Tomate 125g",
+    "marca": "Coqueiro",
+    "categoria": "Mercearia",
+    "preco": 4.99,
+    "imagem": "./assets/img/produtos/30-sardinha-em-molho-de-tomate-125g.jpg",
+    "oferta": true,
+    "descricao": "Sardinha em Molho de Tomate 125g Coqueiro"
+  },
+  {
+    "id": 31,
+    "nome": "Farofa Pronta Tradicional 400g",
+    "marca": "Yoki",
+    "categoria": "Mercearia",
+    "preco": 5.99,
+    "imagem": "./assets/img/produtos/31-farofa-pronta-tradicional-400g.jpg",
+    "oferta": false,
+    "descricao": "Farofa Pronta Tradicional 400g Yoki"
+  },
+  {
+    "id": 32,
+    "nome": "Milho em Conserva Sachê 170g",
+    "marca": "Quero",
+    "categoria": "Mercearia",
+    "preco": 3.49,
+    "imagem": "./assets/img/produtos/32-milho-em-conserva-sache-170g.jpg",
+    "oferta": false,
+    "descricao": "Milho em Conserva Sachê 170g Quero"
+  },
+  {
+    "id": 33,
+    "nome": "Refrigerante Guaraná 2L",
+    "marca": "Antarctica",
+    "categoria": "Bebidas",
+    "preco": 7.99,
+    "imagem": "./assets/img/produtos/33-refrigerante-guarana-2l.jpg",
+    "oferta": true,
+    "descricao": "Refrigerante Guaraná 2L Antarctica"
+  },
+  {
+    "id": 34,
+    "nome": "Suco Integral de Uva Tinto 1,5L",
+    "marca": "Campo Largo",
+    "categoria": "Bebidas",
+    "preco": 14.9,
+    "imagem": "./assets/img/produtos/34-suco-integral-de-uva-tinto-1-5l.png",
+    "oferta": false,
+    "descricao": "Suco Integral de Uva Tinto 1,5L Campo Largo"
+  },
+  {
+    "id": 35,
+    "nome": "Cerveja Puro Malte Lata 350ml",
+    "marca": "Heineken",
+    "categoria": "Bebidas Alcoólicas",
+    "preco": 5.49,
+    "imagem": "./assets/img/produtos/35-cerveja-puro-malte-lata-350ml.jpg",
+    "oferta": false,
+    "descricao": "Cerveja Puro Malte Lata 350ml Heineken"
+  },
+  {
+    "id": 36,
+    "nome": "Água Mineral com Gás 510ml",
+    "marca": "Bonafont",
+    "categoria": "Bebidas",
+    "preco": 2.49,
+    "imagem": "./assets/img/produtos/36-agua-mineral-com-gas-510ml.jpg",
+    "oferta": false,
+    "descricao": "Água Mineral com Gás 510ml Bonafont"
+  },
+  {
+    "id": 37,
+    "nome": "Peito de Frango Desossado e Congelado 1kg",
+    "marca": "Perdigão",
+    "categoria": "Açougue",
+    "preco": 19.9,
+    "imagem": "./assets/img/produtos/37-peito-de-frango-desossado-e-congelado-1kg.jpg",
+    "oferta": false,
+    "descricao": "Peito de Frango Desossado e Congelado 1kg Perdigão"
+  },
+  {
+    "id": 38,
+    "nome": "Carne Moída Patinho 1kg",
+    "marca": "Friboi",
+    "categoria": "Açougue",
+    "preco": 36.9,
+    "imagem": "./assets/img/produtos/38-carne-moida-patinho-1kg.jpg",
+    "oferta": false,
+    "descricao": "Carne Moída Patinho 1kg Friboi"
+  },
+  {
+    "id": 39,
+    "nome": "Linguiça Toscana para Churrasco 1kg",
+    "marca": "Aurora",
+    "categoria": "Açougue",
+    "preco": 21.9,
+    "imagem": "./assets/img/produtos/39-linguica-toscana-para-churrasco-1kg.jpg",
+    "oferta": false,
+    "descricao": "Linguiça Toscana para Churrasco 1kg Aurora"
+  },
+  {
+    "id": 40,
+    "nome": "Hambúrguer Bovino 670g",
+    "marca": "Sadia",
+    "categoria": "Congelados",
+    "preco": 22.5,
+    "imagem": "./assets/img/produtos/40-hamburguer-bovino-670g.jpg",
+    "oferta": false,
+    "descricao": "Hambúrguer Bovino 670g Sadia"
+  },
+  {
+    "id": 41,
+    "nome": "Batata Palito Pré-Frita Congelada 1kg",
+    "marca": "McCain",
+    "categoria": "Congelados",
+    "preco": 18.9,
+    "imagem": "./assets/img/produtos/41-batata-palito-pre-frita-congelada-1kg.jpg",
+    "oferta": false,
+    "descricao": "Batata Palito Pré-Frita Congelada 1kg McCain"
+  },
+  {
+    "id": 42,
+    "nome": "Detergente Líquido Neutro 500ml",
+    "marca": "Ypê",
+    "categoria": "Limpeza",
+    "preco": 2.49,
+    "imagem": "./assets/img/produtos/42-detergente-liquido-neutro-500ml.jpg",
+    "oferta": true,
+    "descricao": "Detergente Líquido Neutro 500ml Ypê"
+  },
+  {
+    "id": 43,
+    "nome": "Sabão em Pó Lavagem Perfeita 1,6kg",
+    "marca": "Omo",
+    "categoria": "Limpeza",
+    "preco": 22.9,
+    "imagem": "./assets/img/produtos/43-sabao-em-po-lavagem-perfeita-1-6kg.jpg",
+    "oferta": true,
+    "descricao": "Sabão em Pó Lavagem Perfeita 1,6kg Omo"
+  },
+  {
+    "id": 44,
+    "nome": "Amaciante Concentrado Tradicional 500ml",
+    "marca": "Comfort",
+    "categoria": "Limpeza",
+    "preco": 11.9,
+    "imagem": "./assets/img/produtos/44-amaciante-concentrado-tradicional-500ml.jpg",
+    "oferta": false,
+    "descricao": "Amaciante Concentrado Tradicional 500ml Comfort"
+  },
+  {
+    "id": 45,
+    "nome": "Desinfetante Perfumado Lavanda 1L",
+    "marca": "Pinho Sol",
+    "categoria": "Limpeza",
+    "preco": 8.99,
+    "imagem": "./assets/img/produtos/45-desinfetante-perfumado-lavanda-1l.jpg",
+    "oferta": false,
+    "descricao": "Desinfetante Perfumado Lavanda 1L Pinho Sol"
+  },
+  {
+    "id": 46,
+    "nome": "Água Sanitária 2L",
+    "marca": "Candura",
+    "categoria": "Limpeza",
+    "preco": 5.49,
+    "imagem": "./assets/img/produtos/46-agua-sanitaria-2l.jpg",
+    "oferta": false,
+    "descricao": "Água Sanitária 2L Candura"
+  },
+  {
+    "id": 47,
+    "nome": "Papel Higiênico Folha Dupla (12 Rolos)",
+    "marca": "Neve",
+    "categoria": "Higiene Pessoal",
+    "preco": 24.9,
+    "imagem": "./assets/img/produtos/47-papel-higienico-folha-dupla-12-rolos.jpg",
+    "oferta": false,
+    "descricao": "Papel Higiênico Folha Dupla (12 Rolos) Neve"
+  },
+  {
+    "id": 48,
+    "nome": "Creme Dental Proteção Anticáries 90g",
+    "marca": "Colgate",
+    "categoria": "Higiene Pessoal",
+    "preco": 4.29,
+    "imagem": "./assets/img/produtos/48-creme-dental-protecao-anticaries-90g.jpg",
+    "oferta": false,
+    "descricao": "Creme Dental Proteção Anticáries 90g Colgate"
+  },
+  {
+    "id": 49,
+    "nome": "Sabonete em Barra Original 90g",
+    "marca": "Dove",
+    "categoria": "Higiene Pessoal",
+    "preco": 4.5,
+    "imagem": "./assets/img/produtos/49-sabonete-em-barra-original-90g.jpg",
+    "oferta": false,
+    "descricao": "Sabonete em Barra Original 90g Dove"
+  },
+  {
+    "id": 50,
+    "nome": "Champô Hidratação Intensa 400ml",
+    "marca": "Seda",
+    "categoria": "Cuidados Pessoais",
+    "preco": 13.9,
+    "imagem": "./assets/img/produtos/50-champo-hidratacao-intensa-400ml.jpg",
+    "oferta": false,
+    "descricao": "Champô Hidratação Intensa 400ml Seda"
+  }
+]

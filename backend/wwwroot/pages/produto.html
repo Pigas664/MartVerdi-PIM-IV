@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="theme-color" content="#2D6A4F">
+  <title>Produto | MartVerdi</title><link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* Página individual: layout de produto e recomendações. */
+    .produto-detalhe{max-width:1180px;margin:35px auto;padding:0 22px}.produto-breadcrumb{font-size:11px;color:var(--muted);margin-bottom:18px}.produto-breadcrumb a{color:var(--primary);font-weight:700;text-decoration:none}.produto-main{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:40px}.produto-foto{min-height:430px;background:#F6F8F7;border-radius:15px;display:flex;align-items:center;justify-content:center;padding:25px}.produto-foto img{width:100%;height:380px;object-fit:contain}.produto-detalhe-info .marca{font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:700}.produto-detalhe-info h1{font-size:31px;line-height:1.15;margin:8px 0}.produto-detalhe-info .descricao{font-size:13px;line-height:1.7;color:var(--muted)}.produto-detalhe-info .avaliacao{color:#F4A261;margin:12px 0}.preco-antigo{color:#9AA39F;text-decoration:line-through;font-size:13px}.preco-atual{display:block;color:var(--primary);font-size:32px;font-weight:800;margin:3px 0 18px}.quantidade{display:flex;align-items:center;gap:12px;margin:16px 0}.quantidade button{width:38px;height:38px;border:1px solid var(--line);background:#F7F9F8;border-radius:8px;color:var(--primary);font-weight:800}.quantidade span{min-width:30px;text-align:center;font-weight:800}.btn-comprar{width:100%;height:50px;border:0;border-radius:10px;background:var(--cta);color:#fff;font-weight:800;font-size:14px}.btn-comprar:hover{background:var(--cta-hover)}.entrega-box{margin-top:18px;padding:15px;border-radius:11px;background:var(--soft);color:var(--primary);font-size:11px;display:flex;gap:10px}.relacionados{max-width:1180px;margin:35px auto;padding:0 22px}.relacionados h2{font-size:23px}@media(max-width:760px){.produto-main{grid-template-columns:1fr;padding:16px;gap:18px}.produto-foto{min-height:280px}.produto-foto img{height:250px}.produto-detalhe-info h1{font-size:25px}}
+  </style>
+</head>
+<body>
+  <!-- CABEÇALHO SIMPLIFICADO DA PÁGINA DE PRODUTO. -->
+  <header class="site-header"><div class="header-principal"><a href="../index.html" class="logo"><img src="../assets/img/martverdi-icon.png" alt="MartVerdi"></a><div class="busca-container"><form class="busca" action="../index.html#alimentos"><i class="fa-solid fa-magnifying-glass"></i><input placeholder="Buscar no MartVerdi"><button>Buscar</button></form></div><a href="./login.html" id="linkMinhaConta" class="usuario-topo"><img src="../assets/img/conta.png" alt="Conta"><div><strong>Minha conta</strong><span id="usuarioTopo">Entrar ou cadastrar</span></div></a><a href="./carrinho.html" class="carrinho-link"><img src="../assets/img/carrinho.png" alt="Carrinho"><span id="contador">0</span></a></div></header>
+  <main class="produto-detalhe"><div class="produto-breadcrumb"><a href="../index.html">Home</a> / <span>Produto</span></div><section class="produto-main" id="produtoMain"><div class="produto-foto"><img id="produtoImagem" src="" alt=""></div><div class="produto-detalhe-info"><span class="marca" id="produtoMarca"></span><h1 id="produtoNome">Carregando...</h1><div class="avaliacao">★★★★★ <span style="color:var(--muted);font-size:11px">5,0 · avaliações</span></div><p class="descricao" id="produtoDescricao"></p><div id="produtoPreco"></div><div class="quantidade"><button id="menos">−</button><span id="quantidade">1</span><button id="mais">+</button></div><button class="btn-comprar" id="adicionar"><i class="fa-solid fa-cart-plus"></i> Adicionar ao carrinho</button><div class="entrega-box"><i class="fa-solid fa-truck-fast"></i><span><strong>Entrega:</strong> informe seu CEP no topo da página inicial para consultar as condições.</span></div></div></section></main>
+  <section class="relacionados"><div class="section-heading"><div><span class="section-kicker">VOCÊ TAMBÉM PODE GOSTAR</span><h2>Produtos relacionados</h2></div></div><div class="produtos-grid" id="relacionadosGrid"></div></section>
+  <div id="toast" class="toast"></div>
+  <script>
+    /* Página individual: lê o ID pela URL, carrega o JSON e adiciona o produto ao carrinho. */
+    const $=s=>document.querySelector(s); const moeda=v=>Number(v||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'}); const id=Number(new URLSearchParams(location.search).get('id')); let produto=null; let quantidade=1;
+    const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)};
+    const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    fetch('../data/produtos.json').then(r=>r.json()).then(lista=>{produto=lista.find(p=>p.id===id)||lista[0];$('#produtoImagem').src=new URL(produto.imagem, location.href.replace(/pages\/produto\.html.*$/,'')).href;$('#produtoImagem').alt=produto.nome;$('#produtoMarca').textContent=produto.marca;$('#produtoNome').textContent=produto.nome;$('#produtoDescricao').textContent=produto.descricao||`${produto.nome} ${produto.marca}. Produto disponível no catálogo MartVerdi.`;$('#produtoPreco').innerHTML=produto.oferta?`<span class="preco-antigo">${moeda(produto.preco*1.12)}</span><span class="preco-atual">${moeda(produto.preco)}</span>`:`<span class="preco-atual">${moeda(produto.preco)}</span>`;const relacionados=lista.filter(p=>p.categoria===produto.categoria&&p.id!==produto.id).slice(0,4);$('#relacionadosGrid').innerHTML=relacionados.map(p=>`<article class="produto-card"><div class="produto-imagem"><a href="./produto.html?id=${p.id}"><img src="${esc(new URL(p.imagem, location.href.replace(/pages\/produto\.html.*$/,'')).href)}" alt="${esc(p.nome)}"></a></div><div class="produto-info"><span class="produto-marca">${esc(p.marca)}</span><a class="produto-nome" href="./produto.html?id=${p.id}">${esc(p.nome)}</a><strong class="preco-produto">${moeda(p.preco)}</strong></div></article>`).join('');$('#contador').textContent=(JSON.parse(localStorage.getItem('carrinhoItens')||'[]')).length;});
+    $('#menos').onclick=()=>{quantidade=Math.max(1,quantidade-1);$('#quantidade').textContent=quantidade};$('#mais').onclick=()=>{quantidade++;$('#quantidade').textContent=quantidade};
+    $('#adicionar').onclick=()=>{if(!produto)return;if(!localStorage.getItem('usuarioLogado')){localStorage.setItem('martverdiProdutoPendente',JSON.stringify({...produto,quantidade}));localStorage.setItem('martverdiDestinoLogin',location.href);location.href='./login.html';return}const itens=JSON.parse(localStorage.getItem('carrinhoItens')||'[]');for(let i=0;i<quantidade;i++)itens.push({...produto,imagem:new URL(produto.imagem, location.href.replace(/pages\/produto\.html.*$/,'')).href,quantidade:1});localStorage.setItem('carrinhoItens',JSON.stringify(itens));localStorage.setItem('carrinho',itens.length);$('#contador').textContent=itens.length;toast('Produto adicionado ao carrinho.');};
+  </script>
+<script>
+  // Atualiza o destino de "Minha conta" conforme o estado da sessão.
+  (() => {
+    const usuario = localStorage.getItem('usuarioLogado');
+    const linkConta = document.getElementById('linkMinhaConta');
+    const nome = document.getElementById('usuarioTopo');
+    if (usuario) {
+      if (linkConta) linkConta.href = './painel.html';
+      if (nome) nome.textContent = `Olá, ${usuario}`;
+    }
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!-- PAINEL: área autenticada com dados, cartões, endereços e pedidos. -->
+
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha conta | MartVerdi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="icon" type="image/png" href="../favicon.png">
+</head>
+<body class="conta-page">
+  <div class="conta-wrap">
+    <div class="conta-breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>Minha conta</span></div>
+    <div class="conta-layout">
+      <aside class="conta-sidebar">
+        <div class="conta-user"><div class="conta-avatar"><i class="fa-solid fa-user"></i></div><div><span style="font-size:12px;color:#68756E">Olá,</span><br><strong id="nomeSidebar">Cliente</strong></div></div>
+        <nav class="conta-nav">
+          <button class="active" data-secao="dados"><i class="fa-solid fa-user"></i>Dados</button>
+          <button data-secao="cartoes"><i class="fa-solid fa-credit-card"></i>Cartões Salvos</button>
+          <button data-secao="enderecos"><i class="fa-solid fa-location-dot"></i>Endereços</button>
+          <button data-secao="pedidos"><i class="fa-solid fa-cart-shopping"></i>Pedidos</button>
+        </nav>
+      </aside>
+
+      <main class="conta-content">
+        <h1>Meus dados</h1>
+
+        <section class="conta-view" id="view-dados">
+          <div class="conta-section" id="dadosSeguranca">
+            <div class="conta-section-head"><h2>Dados de segurança</h2><button class="btn-outline" id="editarDados" type="button">EDITAR DADOS</button></div>
+            <div class="conta-grid">
+              <div class="conta-field"><label>E-mail*</label><div class="valor" id="valorEmail">—</div><input id="inputEmail" type="email"></div>
+              <div class="conta-field"><label>Senha*</label><div class="valor">••••••••</div><input id="inputSenha" type="password" placeholder="Nova senha"></div>
+              <div class="conta-field"><label>CEP*</label><div class="valor" id="valorCep">—</div><input id="inputCep" maxlength="9" inputmode="numeric"></div>
+              <div class="conta-field"><label>Usuário</label><div class="valor" id="valorUsuario">—</div><input id="inputUsuario" type="text" disabled></div>
+            </div>
+            <div class="conta-actions"><button class="btn-secondary" id="cancelarDados" type="button">Cancelar</button><button class="btn-primary" id="salvarDados" type="button">Salvar dados</button></div>
+          </div>
+
+          <div class="conta-section">
+            <div class="conta-section-head"><h2>Dados pessoais</h2><button class="btn-outline" id="editarPessoais" type="button">EDITAR DADOS</button></div>
+            <div class="conta-grid">
+              <div class="conta-field"><label>Nome completo*</label><div class="valor" id="valorNome">—</div><input id="inputNome" type="text"></div>
+              <div class="conta-field"><label>Data de nascimento*</label><div class="valor" id="valorNascimento">—</div><input id="inputNascimento" type="date"></div>
+            </div>
+            <div class="conta-actions"><button class="btn-secondary" id="cancelarPessoais" type="button">Cancelar</button><button class="btn-primary" id="salvarPessoais" type="button">Salvar dados</button></div>
+          </div>
+        </section>
+
+        <section class="conta-view" id="view-cartoes" hidden>
+          <div class="conta-section">
+            <div class="conta-section-head"><h2>Cartões salvos</h2></div>
+            <div class="conta-notice">Por segurança, o MartVerdi demonstra apenas os últimos 4 dígitos do cartão neste protótipo.</div>
+            <div id="listaCartoes"></div>
+            <button class="btn-primary" id="mostrarFormCartao" type="button">Adicionar cartão</button>
+            <form class="cartao-form" id="formCartao" hidden>
+              <input class="full" id="numeroCartao" inputmode="numeric" maxlength="19" placeholder="Número do cartão" required>
+              <input id="nomeCartao" placeholder="Nome no cartão" required>
+              <input id="validadeCartao" placeholder="Validade MM/AA" maxlength="5" required>
+              <select id="bandeiraCartao"><option>Visa</option><option>Mastercard</option><option>Elo</option><option>Hipercard</option></select>
+              <button class="btn-secondary" type="button" id="cancelarCartao">Cancelar</button>
+              <button class="btn-primary" type="submit">Salvar cartão</button>
+            </form>
+          </div>
+        </section>
+
+        <section class="conta-view" id="view-enderecos" hidden>
+          <div class="conta-section"><div class="conta-section-head"><h2>Meus endereços</h2></div><div class="conta-empty"><i class="fa-solid fa-location-dot"></i><p>Seu CEP principal aparece aqui. Use o botão “Informe seu CEP” no topo do site para cadastrar ou alterar.</p><strong id="enderecoCep">Nenhum CEP cadastrado</strong></div></div>
+        </section>
+
+        <section class="conta-view" id="view-pedidos" hidden>
+          <div class="conta-section"><div class="conta-section-head"><h2>Meus pedidos</h2></div><div class="conta-empty"><i class="fa-solid fa-bag-shopping"></i><p>Seus pedidos aparecerão aqui quando você finalizar uma compra.</p></div></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://kit.fontawesome.com/7b2f0a27b7.js" crossorigin="anonymous"></script>
+  <script>
+    const usuarioAtual=localStorage.getItem('usuarioLogado');
+    if(!usuarioAtual){window.location.href='./login.html';}
+
+    let usuarios=JSON.parse(localStorage.getItem('martverdiUsuarios')||'[]');
+    let usuario=usuarios.find(u=>u.usuario===usuarioAtual);
+    if(!usuario){usuario={nome:usuarioAtual,usuario:usuarioAtual,senha:'',email:'',dataNascimento:'',cep:localStorage.getItem('martverdiCep')||''};}
+
+    const $=id=>document.getElementById(id);
+    $('nomeSidebar').textContent=usuario.nome||usuario.usuario;
+    $('valorEmail').textContent=usuario.email||'Não informado';
+    $('valorCep').textContent=usuario.cep||localStorage.getItem('martverdiCep')||'Não informado';
+    $('valorUsuario').textContent=usuario.usuario;
+    $('valorNome').textContent=usuario.nome||'Não informado';
+    $('valorNascimento').textContent=usuario.dataNascimento?new Date(usuario.dataNascimento+'T00:00:00').toLocaleDateString('pt-BR'):'Não informado';
+    $('inputEmail').value=usuario.email||'';$('inputCep').value=usuario.cep||localStorage.getItem('martverdiCep')||'';$('inputUsuario').value=usuario.usuario;$('inputNome').value=usuario.nome||'';$('inputNascimento').value=usuario.dataNascimento||'';
+
+    function salvarUsuario(){
+      const i=usuarios.findIndex(u=>u.usuario===usuarioAtual);
+      if(i>=0) usuarios[i]=usuario; else usuarios.push(usuario);
+      localStorage.setItem('martverdiUsuarios',JSON.stringify(usuarios));
+      if(usuario.cep)localStorage.setItem('martverdiCep',usuario.cep);
+    }
+    function formatCep(v){const n=v.replace(/\D/g,'').slice(0,8);return n.length>5?n.slice(0,5)+'-'+n.slice(5):n;}
+    $('inputCep').addEventListener('input',e=>e.target.value=formatCep(e.target.value));
+    function preencher(){
+      $('valorEmail').textContent=usuario.email||'Não informado';$('valorCep').textContent=usuario.cep||'Não informado';$('valorNome').textContent=usuario.nome||'Não informado';$('valorNascimento').textContent=usuario.dataNascimento?new Date(usuario.dataNascimento+'T00:00:00').toLocaleDateString('pt-BR'):'Não informado';$('nomeSidebar').textContent=usuario.nome||usuario.usuario;$('enderecoCep').textContent=usuario.cep||'Nenhum CEP cadastrado';
+    }
+    $('editarDados').onclick=()=>{$('dadosSeguranca').classList.add('conta-editando');$('inputEmail').focus();};
+    $('cancelarDados').onclick=()=>{$('dadosSeguranca').classList.remove('conta-editando');};
+    $('salvarDados').onclick=()=>{usuario.email=$('inputEmail').value.trim();usuario.cep=formatCep($('inputCep').value);if($('inputSenha').value)usuario.senha=$('inputSenha').value;salvarUsuario();$('inputSenha').value='';$('dadosSeguranca').classList.remove('conta-editando');preencher();};
+    const pessoalSection=$('editarPessoais').closest('.conta-section');
+    $('editarPessoais').onclick=()=>{pessoalSection.classList.add('conta-editando');$('inputNome').focus();};
+    $('cancelarPessoais').onclick=()=>pessoalSection.classList.remove('conta-editando');
+    $('salvarPessoais').onclick=()=>{usuario.nome=$('inputNome').value.trim();usuario.dataNascimento=$('inputNascimento').value;salvarUsuario();pessoalSection.classList.remove('conta-editando');preencher();};
+
+    document.querySelectorAll('.conta-nav button').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.conta-nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.conta-view').forEach(v=>v.hidden=true);$('view-'+btn.dataset.secao).hidden=false;}));
+
+    function renderCartoes(){
+      const lista=$('listaCartoes');const cards=JSON.parse(localStorage.getItem('martverdiCartoes_'+usuarioAtual)||'[]');
+      lista.innerHTML=cards.length?cards.map((c,i)=>`<div class="cartao-card"><div><div class="cartao-brand">${c.bandeira}</div><div class="cartao-number">•••• •••• •••• ${c.final}</div><div class="cartao-meta">${c.nome} · Validade ${c.validade}</div></div><button class="btn-delete-card" onclick="removerCartao(${i})">Remover</button></div>`).join(''):'<div class="conta-empty" style="margin-bottom:18px"><i class="fa-solid fa-credit-card"></i><p>Você ainda não possui cartões salvos.</p></div>';
+    }
+    window.removerCartao=function(i){const k='martverdiCartoes_'+usuarioAtual;const c=JSON.parse(localStorage.getItem(k)||'[]');c.splice(i,1);localStorage.setItem(k,JSON.stringify(c));renderCartoes();};
+    $('mostrarFormCartao').onclick=()=>{$('formCartao').hidden=false;$('mostrarFormCartao').hidden=true;};
+    $('cancelarCartao').onclick=()=>{$('formCartao').hidden=true;$('mostrarFormCartao').hidden=false;};
+    $('numeroCartao').addEventListener('input',e=>{const n=e.target.value.replace(/\D/g,'').slice(0,16);e.target.value=n.replace(/(.{4})/g,'$1 ').trim();});
+    $('validadeCartao').addEventListener('input',e=>{const n=e.target.value.replace(/\D/g,'').slice(0,4);e.target.value=n.length>2?n.slice(0,2)+'/'+n.slice(2):n;});
+    $('formCartao').addEventListener('submit',e=>{e.preventDefault();const n=$('numeroCartao').value.replace(/\D/g,'');if(n.length<13){alert('Digite um número de cartão válido para o protótipo.');return;}const k='martverdiCartoes_'+usuarioAtual;const c=JSON.parse(localStorage.getItem(k)||'[]');c.push({bandeira:$('bandeiraCartao').value,nome:$('nomeCartao').value.trim(),validade:$('validadeCartao').value,final:n.slice(-4)});localStorage.setItem(k,JSON.stringify(c));e.target.reset();e.target.hidden=true;$('mostrarFormCartao').hidden=false;renderCartoes();});
+    // PEDIDOS: mostra os pedidos simulados criados no checkout.
+    function renderPedidos(){
+      const pedidos=JSON.parse(localStorage.getItem('martverdiPedidos')||'[]');
+      const area=document.querySelector('#view-pedidos .conta-section');
+      if(!area) return;
+      if(!pedidos.length) return;
+      area.innerHTML='<div class="conta-section-head"><h2>Meus pedidos</h2></div>'+pedidos.map(p=>`<div style="border:1px solid #E1E8E4;border-radius:12px;padding:15px;margin:10px 0;background:#fff"><div style="display:flex;justify-content:space-between;gap:10px"><strong>Pedido #${p.id}</strong><span style="color:#2D6A4F;font-weight:700">${p.status}</span></div><p style="font-size:11px;color:#6D7772;margin:6px 0">${p.data} · ${p.pagamento}</p><p style="font-size:12px;margin:0">${p.itens.length} produto(s) · <strong>R$ ${Number(p.total).toFixed(2).replace('.',',')}</strong></p></div>`).join('');
+    }
+    preencher();renderCartoes();renderPedidos();
+  </script>
+</body>
+</html>
