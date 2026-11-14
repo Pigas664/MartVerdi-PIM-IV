@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2D6A4F">
+  <meta name="description" content="MartVerdi — supermercado online com ofertas, produtos e entrega.">
+  <title>MartVerdi | Mercado online</title>
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+  <!-- TOPO: barra pequena com atalhos e informações da loja. -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-links-left">
+        <a href="#inicio">Home</a><a href="#ofertas">Ofertas</a><a href="#alimentos">Produtos</a><a href="#categorias">Categorias</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
+      </div>
+      <div class="top-links-right"><span><i class="fa-solid fa-shield-halved"></i> Compra segura</span><span><i class="fa-solid fa-truck"></i> Entrega prática</span></div>
+    </div>
+  </div>
+
+  <!-- CABEÇALHO PRINCIPAL: logo, busca, conta e carrinho. -->
+  <header class="site-header">
+    <div class="header-principal">
+      <a href="#inicio" class="logo" aria-label="MartVerdi - início"><img src="./assets/img/martverdi-icon.png" alt="MartVerdi"></a>
+      <div class="busca-container">
+        <form class="busca" id="formBusca">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="search" id="campoBusca" autocomplete="off" placeholder="Busque por produtos, marcas ou categorias..." aria-label="Buscar produtos">
+          <button type="submit">Buscar</button>
+        </form>
+        <div id="resultadoBusca" class="resultado-busca" role="listbox"></div>
+      </div>
+      <a href="./pages/login.html" id="linkMinhaConta" class="usuario-topo" aria-label="Minha conta"><img src="./assets/img/conta.png" alt="Minha conta"><div><strong>Minha conta</strong><span id="usuarioTopo">Acesse ou cadastre-se</span></div></a>
+      <a href="./pages/carrinho.html" class="carrinho-link" aria-label="Abrir carrinho"><img src="./assets/img/carrinho.png" alt="Carrinho"><span id="contadorCarrinho">0</span></a>
+    </div>
+
+    <!-- MENU SECUNDÁRIO: departamentos, atalhos e CEP. -->
+    <div class="menu-secundario">
+      <button class="departamentos" id="btnDepartamentos" type="button"><i class="fa-solid fa-bars"></i> Departamentos <i class="fa-solid fa-chevron-down"></i></button>
+      <nav><a href="#ofertas">Ofertas do dia</a><a href="#alimentos">Produtos</a><a href="#categorias">Categorias</a><a href="#mais-vendidos">Mais vendidos</a><a href="#beneficios">Vantagens</a></nav>
+      <button class="cep" id="abrirCep" type="button"><i class="fa-solid fa-location-dot"></i><span id="cepTexto">Informe seu CEP</span></button>
+    </div>
+    <div class="departamentos-menu" id="departamentosMenu" hidden>
+      <button data-categoria="Mercearia">Mercearia</button><button data-categoria="Laticínios">Laticínios</button><button data-categoria="Bebidas">Bebidas</button><button data-categoria="Açougue">Açougue</button><button data-categoria="Padaria">Padaria</button><button data-categoria="Congelados">Congelados</button><button data-categoria="Limpeza">Limpeza</button><button data-categoria="Higiene Pessoal">Higiene Pessoal</button>
+    </div>
+  </header>
+
+  <!-- MODAL DE CEP: salva o CEP no navegador para simular a experiência de entrega. -->
+  <div class="cep-modal" id="cepModal" hidden><div class="cep-modal-overlay" data-fechar-cep></div><section class="cep-modal-card" role="dialog" aria-modal="true"><button class="cep-modal-fechar" data-fechar-cep aria-label="Fechar">&times;</button><span class="section-kicker">ENTREGA</span><h2>Onde você quer receber?</h2><p>Informe seu CEP para usar o mesmo endereço durante a navegação.</p><label for="cepInput">CEP</label><input id="cepInput" inputmode="numeric" maxlength="9" placeholder="00000-000"><button id="salvarCep" class="btn-primary" type="button">Salvar CEP</button><small id="cepMensagem"></small></section></div>
+
+  <main>
+    <!-- BANNER PRINCIPAL: carrossel com as quatro artes escolhidas. -->
+    <section class="banner-carousel" id="inicio" aria-label="Ofertas MartVerdi">
+      <div class="banner-track" id="bannerTrack">
+        <article class="banner-slide"><img src="./assets/img/banners/01-acougue-martverdi.png" alt="Ofertas do Açougue MartVerdi"></article>
+        <article class="banner-slide"><img src="./assets/img/banners/02-laticinios-martverdi.png" alt="Ofertas de Laticínios MartVerdi"></article>
+        <article class="banner-slide"><img src="./assets/img/banners/03-bebidas-martverdi.png" alt="Ofertas de Bebidas MartVerdi"></article>
+        <article class="banner-slide"><img src="./assets/img/banners/04-biscoitos-doces-martverdi.png" alt="Ofertas de Biscoitos e Doces MartVerdi"></article>
+      </div>
+      <button class="banner-arrow banner-prev" type="button" aria-label="Banner anterior"><i class="fa-solid fa-chevron-left"></i></button>
+      <div class="banner-dots" id="bannerDots"><button class="active" aria-label="Banner 1"></button><button aria-label="Banner 2"></button><button aria-label="Banner 3"></button><button aria-label="Banner 4"></button></div>
+      <button class="banner-arrow banner-next" type="button" aria-label="Próximo banner"><i class="fa-solid fa-chevron-right"></i></button>
+    </section>
+
+    <!-- BENEFÍCIOS: quatro motivos rápidos para confiar na loja. -->
+    <section class="beneficios" id="beneficios">
+      <div><i class="fa-solid fa-truck-fast"></i><div><strong>Entrega prática</strong><span>Consulte pelo CEP</span></div></div>
+      <div><i class="fa-solid fa-tags"></i><div><strong>Ofertas toda semana</strong><span>Preços especiais</span></div></div>
+      <div><i class="fa-solid fa-shield-halved"></i><div><strong>Compra segura</strong><span>Ambiente protegido</span></div></div>
+      <div><i class="fa-solid fa-credit-card"></i><div><strong>Pagamento fácil</strong><span>PIX e cartões</span></div></div>
+    </section>
+
+    <!-- CATEGORIAS: acesso rápido ao catálogo. -->
+    <section class="categorias" id="categorias">
+      <div class="section-heading"><div><span class="section-kicker">ENCONTRE MAIS RÁPIDO</span><h2>Compre por categoria</h2><p>Escolha uma seção e veja os produtos disponíveis.</p></div></div>
+      <div class="categorias-grid" id="categoriasGrid">
+        <button class="categoria-card" data-categoria="Mercearia"><i class="fa-solid fa-basket-shopping"></i><div><h3>Mercearia</h3><p>Arroz, feijão, massas e muito mais</p></div></button>
+        <button class="categoria-card" data-categoria="Laticínios"><i class="fa-solid fa-cheese"></i><div><h3>Laticínios</h3><p>Leites, queijos e derivados</p></div></button>
+        <button class="categoria-card" data-categoria="Bebidas"><i class="fa-solid fa-bottle-water"></i><div><h3>Bebidas</h3><p>Refrigerantes, sucos e águas</p></div></button>
+        <button class="categoria-card" data-categoria="Açougue"><i class="fa-solid fa-drumstick-bite"></i><div><h3>Açougue</h3><p>Carnes para o dia a dia</p></div></button>
+        <button class="categoria-card" data-categoria="Padaria"><i class="fa-solid fa-bread-slice"></i><div><h3>Padaria</h3><p>Pães e itens para seu café</p></div></button>
+        <button class="categoria-card" data-categoria="Limpeza"><i class="fa-solid fa-pump-soap"></i><div><h3>Limpeza</h3><p>Cuide da sua casa</p></div></button>
+      </div>
+    </section>
+
+    <!-- OFERTAS: produtos de promoção carregados do JSON. -->
+    <section class="produtos destaque-section" id="ofertas">
+      <div class="section-heading"><div><span class="section-kicker">MELHORES PREÇOS</span><h2>Ofertas da semana</h2><p>Produtos selecionados para você economizar.</p></div><a href="#alimentos">Ver catálogo <i class="fa-solid fa-arrow-right"></i></a></div>
+      <div class="produtos-grid" id="ofertasGrid"></div>
+    </section>
+
+    <!-- FAIXA PROMOCIONAL: destaque visual entre as áreas do catálogo. -->
+    <section class="promo-strip"><div><span>ECONOMIZE NO MARTVERDI</span><h2>Quanto mais você compra, mais aproveita.</h2><p>Frete grátis em compras a partir de R$ 299 no protótipo.</p></div><a href="#alimentos" class="promo-button">Ver produtos <i class="fa-solid fa-arrow-right"></i></a></section>
+
+    <!-- CATÁLOGO: filtros, busca, ordenação e todos os 50 produtos. -->
+    <section class="alimentos" id="alimentos">
+      <div class="alimentos-heading"><div><span class="section-kicker">CATÁLOGO MARTVERDI</span><h2>Todos os produtos</h2><p>Filtre, pesquise e encontre exatamente o que procura.</p></div><strong id="alimentosTotal">50 produtos</strong></div>
+      <div class="catalog-toolbar"><div class="categoria-chips" id="alimentosCategorias"><button class="categoria-chip active" data-categoria="Todos">Todos</button><button class="categoria-chip" data-categoria="Mercearia">Mercearia</button><button class="categoria-chip" data-categoria="Laticínios">Laticínios</button><button class="categoria-chip" data-categoria="Bebidas">Bebidas</button><button class="categoria-chip" data-categoria="Açougue">Açougue</button><button class="categoria-chip" data-categoria="Biscoitos e Doces">Biscoitos e doces</button><button class="categoria-chip" data-categoria="Padaria">Padaria</button><button class="categoria-chip" data-categoria="Congelados">Congelados</button><button class="categoria-chip" data-categoria="Limpeza">Limpeza</button><button class="categoria-chip" data-categoria="Higiene Pessoal">Higiene</button></div></div>
+      <div class="alimentos-layout">
+        <aside class="filtros-alimentos"><div class="filtros-topo"><strong>Filtros</strong><button id="limparFiltros" type="button">Limpar</button></div><div class="filtro-grupo"><strong>Categorias</strong><label><input type="checkbox" value="Mercearia" class="filtro-categoria"> Mercearia</label><label><input type="checkbox" value="Laticínios" class="filtro-categoria"> Laticínios</label><label><input type="checkbox" value="Bebidas" class="filtro-categoria"> Bebidas</label><label><input type="checkbox" value="Açougue" class="filtro-categoria"> Açougue</label><label><input type="checkbox" value="Limpeza" class="filtro-categoria"> Limpeza</label></div><div class="filtro-grupo"><strong>Preço</strong><div class="preco-inputs"><input id="precoMin" type="number" min="0" step="0.01" placeholder="Mínimo"><input id="precoMax" type="number" min="0" step="0.01" placeholder="Máximo"></div></div><div class="filtro-grupo"><label class="checkbox-oferta"><input id="somenteOfertas" type="checkbox"> Somente ofertas</label></div></aside>
+        <div class="alimentos-resultados"><div class="resultado-topo"><span><strong id="resultadoQuantidade">50</strong> produtos encontrados</span><label>Ordenar <select id="ordenarProdutos"><option value="relevancia">Mais relevantes</option><option value="menor-preco">Menor preço</option><option value="maior-preco">Maior preço</option><option value="az">A-Z</option></select></label></div><div class="produtos-grid alimentos-grid" id="alimentosGrid"></div><div class="alimentos-vazio" id="alimentosVazio" hidden><i class="fa-solid fa-magnifying-glass"></i><h3>Nenhum produto encontrado</h3><p>Tente outro termo ou limpe os filtros.</p></div></div>
+      </div>
+    </section>
+
+    <!-- MAIS VENDIDOS: seleção dinâmica com base nos primeiros itens do catálogo. -->
+    <section class="produtos" id="mais-vendidos"><div class="section-heading"><div><span class="section-kicker">QUERIDINHOS</span><h2>Mais vendidos</h2><p>Algumas escolhas populares do MartVerdi.</p></div></div><div class="produtos-grid" id="maisVendidosGrid"></div></section>
+
+    <!-- CONFIANÇA: informações institucionais para dar acabamento de loja real. -->
+    <section class="confia"><div><i class="fa-solid fa-box-open"></i><strong>Pedido organizado</strong><span>Acompanhe seus itens no carrinho.</span></div><div><i class="fa-solid fa-location-dot"></i><strong>Entrega por CEP</strong><span>Salve seu CEP para agilizar.</span></div><div><i class="fa-solid fa-headset"></i><strong>Atendimento</strong><span>Fale com o MartVerdi.</span></div><div><i class="fa-solid fa-mobile-screen-button"></i><strong>Feito para celular</strong><span>Experiência responsiva.</span></div></section>
+
+    <!-- SOBRE E CONTATO: rodapé institucional do projeto. -->
+    <section class="sobre" id="sobre"><span class="section-kicker">SOBRE NÓS</span><h2>Um mercado pensado para você</h2><p>O MartVerdi é um projeto de e-commerce acadêmico criado para demonstrar uma experiência moderna de supermercado online, com catálogo, conta, carrinho e recursos de entrega.</p><div class="sobre-numeros"><div><h3>50+</h3><span>Produtos</span></div><div><h3>9</h3><span>Categorias</span></div><div><h3>100%</h3><span>Foco no usuário</span></div></div></section>
+    <section class="contato" id="contato"><div class="section-heading"><div><span class="section-kicker">FALE CONOSCO</span><h2>MartVerdi</h2><p>Projeto demonstrativo — dados de endereço e atendimento são ilustrativos.</p></div></div><div class="contato-grid"><div class="contato-card"><i class="fa-solid fa-location-dot"></i><h3>Endereço</h3><p>Rua das Flores, 123</p><p>Barueri - SP</p></div><div class="contato-card"><i class="fa-brands fa-whatsapp"></i><h3>WhatsApp</h3><p>(11) 99999-9999</p></div><div class="contato-card"><i class="fa-solid fa-clock"></i><h3>Horário</h3><p>Segunda a sábado</p><p>08h às 22h</p></div></div></section>
+  </main>
+
+  <!-- RODAPÉ: links e informações finais. -->
+  <footer><div class="footer-container"><div><img src="./assets/img/martverdi-icon.png" alt="MartVerdi" class="footer-logo"><p>Seu mercado online com variedade, ofertas e uma experiência simples.</p></div><div><h3>Atalhos</h3><a href="#inicio">Início</a><a href="#ofertas">Ofertas</a><a href="#alimentos">Produtos</a><a href="./pages/carrinho.html">Carrinho</a></div><div><h3>Minha conta</h3><a href="./pages/login.html">Entrar</a><a href="./pages/cadastro.html">Criar conta</a><a href="./pages/painel.html">Meus dados</a></div><div><h3>Pagamento</h3><p>PIX, cartões e dinheiro.</p><p class="footer-safe"><i class="fa-solid fa-lock"></i> Ambiente demonstrativo seguro</p></div></div><div class="footer-bottom">© 2026 MartVerdi — Projeto acadêmico.</div></footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
