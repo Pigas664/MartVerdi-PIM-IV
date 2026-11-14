@@ -1,0 +1,1 @@
+O banco de dados do MartVerdi utiliza Microsoft SQL Server para armazenar e gerenciar informações de produtos, usuários, pedidos e itens dos pedidos. Esta pasta será destinada aos scripts SQL, à estrutura das tabelas e aos relacionamentos utilizados pelo sistema.
